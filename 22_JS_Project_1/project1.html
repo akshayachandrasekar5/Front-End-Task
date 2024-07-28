@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Weight on Different Planets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color:linen;
+            text-align: center;
+            background-image:url(./images/galaxy.gif);
+        }
+        .container {
+            margin-top: 50px;
+        }
+        select, input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        img {
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculate a weight on a planet</h1>
+        <label for="weight">Enter weight on Earth(kg):</label>
+        <input type="number" id="weight" placeholder="Enter weight" required>
+        <br>
+        <label for="planet">Select a planet:</label>
+        <select id="planet">
+            <option value="mercury">Mercury</option>
+            <option value="venus">Venus</option>
+            <option value="earth">Earth</option>
+            <option value="mars">Mars</option>
+            <option value="jupiter">Jupiter</option>
+            <option value="saturn">Saturn</option>
+            <option value="uranus">Uranus</option>
+            <option value="neptune">Neptune</option>
+            <option value="pluto">Pluto</option>
+            <option value="moon">Moon</option>
+        </select>
+        <br>
+        <button id="calculateButton">Calculate weight</button>
+        <h1 id="result"></h1>
+        <img id="planetImage" src="" alt="planetImage">
+    </div>
+
+    <script>
+        const gravity = {
+            mercury: 3.7,
+            venus: 8.87,
+            earth: 9.81,
+            mars: 3.71,
+            jupiter: 24.79,
+            saturn: 10.44,
+            uranus: 8.69,
+            neptune: 11.15,
+            pluto: 0.62,
+            moon: 1.62
+        };
+
+        const planetImages = {
+            mercury: 'images/mercury.png',
+            venus: 'images/venus.png',
+            earth: 'images/earth.png',
+            mars: 'images/mars.png',
+            jupiter: 'images/jupiter.png',
+            saturn: 'images/saturn.png',
+            uranus: 'images/uranus.png',
+            neptune: 'images/neptune.png',
+            pluto: 'images/pluto.png',
+            moon: 'images/moon.png'
+        };
+
+        function calculateWeight() {
+            const weightInput = document.getElementById('weight').value;
+            const planet = document.getElementById('planet').value;
+            if (weightInput && planet) {
+                const weight = parseFloat(weightInput);
+                const planetGravity = gravity[planet];
+                const weightOnPlanet = weight * planetGravity / gravity.earth; // convert weight from Earth weight
+                document.getElementById('result').innerText = `The weight on ${planet.charAt(0).toUpperCase() + planet.slice(1)} is ${weightOnPlanet.toFixed(2)} kg`;
+                document.getElementById('planetImage').src = planetImages[planet];
+            } else {
+                document.getElementById('result').innerText = 'Please enter the weight and select a planet.';
+                document.getElementById('planetImage').src = '';
+            }
+        }
+
+        document.getElementById('calculateButton').addEventListener('click', calculateWeight);
+    </script>
+</body>
+</html>

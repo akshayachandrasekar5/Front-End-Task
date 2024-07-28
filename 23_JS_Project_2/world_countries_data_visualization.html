@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Populated Countries and Spoken Languages</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: goldenrod;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content:center;
+            margin: 40px;
+        }
+
+        .graph {
+            width: 40%;
+            height: auto;
+            padding: 20px;
+        }
+
+        .bar {
+            width: 50%;
+            height: 20px;
+            background-color:mediumvioletred;
+            margin: 10px 0;
+            display: inline-block;
+            border: 5px solid plum;
+        }
+
+        .bar:hover {
+            background-color:turquoise;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Most Populated Countries and Spoken Languages</h1>
+    <div class="container">
+        <div class="column">
+            <h2>Most Populated Countries</h2>
+            <div class="graph" id="countries-graph"></div>
+        </div>
+        <div class="column">
+            <h2>Most Spoken Languages</h2>
+            <div class="graph" id="languages-graph"></div>
+        </div>
+    </div>
+    <script src="countries_data.js"></script>
+</body>
+</html>
