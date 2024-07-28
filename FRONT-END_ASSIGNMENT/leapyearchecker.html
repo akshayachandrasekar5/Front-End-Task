@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leap Year Checker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+    }
+    input[type="number"] {
+        padding: 8px;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+    <h2>Leap Year Checker</h2>
+    <form id="yearForm">
+        <label for="year">Enter a year:</label>
+        <input type="number" id="year" name="year" min="0" required>
+        <button type="button" onclick="checkLeapYear()">Check Leap Year</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function isLeapYear(year) {
+            // Leap year is divisible by 4, but not divisible by 100, except when divisible by 400
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        function checkLeapYear() {
+            let yearInput = document.getElementById('year').value;
+            let year = parseInt(yearInput);
+
+            if (isNaN(year)) {
+                alert("Please enter a valid year.");
+                return;
+            }
+
+            if (isLeapYear(year)) {
+                document.getElementById('result').textContent = year + " is a leap year.";
+            } else {
+                document.getElementById('result').textContent = year + " is not a leap year.";
+            }
+        }
+    </script>
+</body>
+</html>

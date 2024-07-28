@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Billing Software</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background-color:blanchedalmond;}
+table { width: 50%; margin-bottom: 20px; }
+table, th, td { border: 5px solid cadetblue; border-collapse: collapse; padding: 10px; text-align: left; }
+th { background-color:aliceblue }
+td { background-color: darkseagreen;}
+input[type="number"] { width: 100%; }
+input[type="text"] {background-color: gainsboro;}
+input[type="number"] {background-color: gainsboro;}
+input[type="number"] {background-color: gainsboro;}
+input[class="subtotal"] {background-color: gainsboro;}
+.total { font-weight: bold; }
+</style>
+</head>
+<body>
+<h1><center>Billing Software</center></h1>
+<table id="billingTable">
+<thead>
+<tr>
+<th><center>Item</center></th>
+<th><center>Quantity</center></th>
+<th><center>Price</center></th>
+<th><center>Amount</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="text" value=" Enter Item"></td>
+<td><input type="number" value="" step="0"></td>
+<td><input type="number" value="" step="0"></td>
+<td class="subtotal">0.00</td>
+</tr>
+</tbody>
+</table>
+<center><button onclick="addItem()">Add Item</button></center>
+<script src="script.js"></script>
+</body>
+</html>
